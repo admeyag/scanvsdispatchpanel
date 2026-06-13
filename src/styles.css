@@ -1,0 +1,131 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+:root {
+  --radius: 0.875rem;
+
+  /* Base — Soft Cloud */
+  --background: oklch(0.985 0.004 250);
+  --foreground: oklch(0.22 0.04 260);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.04 260);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.22 0.04 260);
+
+  /* Primary — Purplle magenta-purple */
+  --primary: oklch(0.5 0.28 320);
+  --primary-foreground: oklch(0.99 0 0);
+
+  --secondary: oklch(0.97 0.01 255);
+  --secondary-foreground: oklch(0.28 0.04 260);
+  --muted: oklch(0.965 0.008 250);
+  --muted-foreground: oklch(0.52 0.025 258);
+  --accent: oklch(0.955 0.025 270);
+  --accent-foreground: oklch(0.28 0.04 260);
+
+  --destructive: oklch(0.62 0.23 22);
+  --destructive-foreground: oklch(0.99 0 0);
+  --success: oklch(0.66 0.16 158);
+  --success-foreground: oklch(0.99 0 0);
+  --warning: oklch(0.78 0.16 70);
+  --warning-foreground: oklch(0.22 0.02 250);
+
+  --border: oklch(0.92 0.01 255);
+  --input: oklch(0.93 0.008 320);
+  --ring: oklch(0.5 0.28 320);
+
+  /* Vibrant accents (for icon badges) */
+  --accent-violet: oklch(0.56 0.22 275);
+  --accent-coral: oklch(0.68 0.2 28);
+  --accent-amber: oklch(0.78 0.16 70);
+  --accent-teal: oklch(0.66 0.13 195);
+  --accent-emerald: oklch(0.66 0.16 158);
+  --accent-pink: oklch(0.68 0.2 350);
+
+  --chart-1: oklch(0.66 0.16 158);
+  --chart-2: oklch(0.68 0.2 28);
+  --chart-3: oklch(0.56 0.22 275);
+  --chart-4: oklch(0.78 0.16 70);
+  --chart-5: oklch(0.66 0.13 195);
+
+  /* Brand surfaces — Purplle magenta-purple */
+  --header-gradient: linear-gradient(120deg, oklch(0.42 0.27 320) 0%, oklch(0.5 0.28 318) 50%, oklch(0.6 0.24 330) 100%);
+  --header-blue: oklch(0.42 0.27 320);
+  --header-blue-foreground: oklch(0.99 0 0);
+
+  --primary-soft: oklch(0.96 0.04 320);
+  --success-soft: oklch(0.95 0.06 158);
+  --danger-soft: oklch(0.95 0.06 22);
+  --warning-soft: oklch(0.96 0.07 75);
+  --teal-soft: oklch(0.95 0.05 195);
+  --pink-soft: oklch(0.96 0.05 350);
+
+  --shadow-xs: 0 1px 2px oklch(0.2 0.02 320 / 5%);
+  --shadow-sm: 0 1px 3px oklch(0.2 0.02 320 / 6%), 0 1px 2px oklch(0.2 0.02 320 / 4%);
+  --shadow-card: 0 1px 2px oklch(0.2 0.04 320 / 5%), 0 16px 40px -20px oklch(0.4 0.2 320 / 18%);
+  --shadow-glow: 0 0 0 1px oklch(0.5 0.27 320 / 12%), 0 14px 36px -14px oklch(0.5 0.27 320 / 35%);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html, body {
+    font-family: var(--font-sans);
+  }
+  body {
+    background:
+      radial-gradient(1100px 600px at -5% -10%, oklch(0.93 0.09 320 / 50%), transparent 60%),
+      radial-gradient(900px 500px at 105% 0%, oklch(0.93 0.07 290 / 35%), transparent 55%),
+      radial-gradient(800px 500px at 50% 120%, oklch(0.93 0.06 340 / 30%), transparent 60%),
+      linear-gradient(180deg, oklch(0.995 0.005 320), oklch(0.975 0.012 320));
+    background-attachment: fixed;
+    color: var(--color-foreground);
+    font-feature-settings: "cv11", "ss01", "tnum";
+    -webkit-font-smoothing: antialiased;
+  }
+  code, pre, .font-mono {
+    font-family: var(--font-mono);
+  }
+}
